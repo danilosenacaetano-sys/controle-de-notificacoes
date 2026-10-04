@@ -1,0 +1,377 @@
+/*
+ * 06-historico-manutencao-vencimentos.css
+ * Histórico, Manutenção, Vencimentos e listas de lojas.
+ * Os arquivos de CSS são carregados em ordem (01, 02, 03...): uma regra de um arquivo
+ * posterior pode completar ou substituir a de um arquivo anterior.
+ */
+
+/* Histórico, Manutenção, Vencimentos e listas */
+.hist-loja {
+    border: 2px solid var(--brand);
+    background: linear-gradient(90deg,var(--brand-soft),#fff);
+}
+
+tr.grupo[data-act] {
+    cursor: pointer;
+}
+
+tr.grupo[data-act]:hover td {
+    background: #fbd5db;
+}
+
+.grupo-acao {
+    float: right;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+    border: 1px solid var(--brand);
+    border-radius: 14px;
+    padding: 2px 10px;
+    background: #fff;
+}
+
+.manut-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 4px 0 14px;
+}
+
+.pag-titulo {
+    margin: 0;
+    font-size: 30px;
+    color: var(--black);
+    border-left: 6px solid var(--brand);
+    padding-left: 12px;
+    line-height: 1.1;
+}
+
+.pag-sub {
+    margin: 4px 0 0 18px;
+    font-size: 16px;
+    color: var(--brand);
+    font-weight: 700;
+}
+
+.manut-total {
+    background: linear-gradient(120deg,var(--brand),var(--brand-dark));
+    color: #fff;
+    border-radius: 14px;
+    padding: 12px 20px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    min-width: 200px;
+}
+
+.manut-total span {
+    display: block;
+    font-size: 13px;
+    opacity: .95;
+}
+
+.manut-total b {
+    font-size: 36px;
+    line-height: 1.1;
+}
+
+.loja-nome {
+    font-weight: 700;
+    font-size: 15.5px;
+}
+
+.qt-aberto {
+    background: var(--brand);
+    color: #fff;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13.5px;
+    white-space: nowrap;
+}
+
+.qt-aberto b {
+    font-size: 17px;
+}
+
+.loja-item.sem {
+    opacity: .85;
+}
+
+.sem-abertas summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.sem-abertas summary::-webkit-details-marker {
+    display: none;
+}
+
+.sem-abertas summary::before {
+    content: '▸ ';
+    color: var(--brand);
+}
+
+.sem-abertas[open] summary::before {
+    content: '▾ ';
+}
+
+.kpi-btn {
+    font: inherit;
+    color: var(--ink);
+    cursor: pointer;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--brand);
+}
+
+.kpi-btn small {
+    display: block;
+    font-size: 11px;
+    color: var(--brand);
+    margin-top: 4px;
+    opacity: .8;
+}
+
+.kpi-btn:hover {
+    border-color: var(--brand);
+    box-shadow: var(--shadow-lg);
+}
+
+.kpi-btn.sel {
+    background: var(--brand);
+    border-color: var(--brand);
+}
+
+.kpi-btn.sel b, .kpi-btn.sel span, .kpi-btn.sel small {
+    color: #fff!important;
+}
+
+.kpi-lista {
+    border: 2px solid var(--brand);
+    animation: fadein .25s ease;
+}
+
+.kpi-lista tbody tr, .resumo-loja tbody tr {
+    cursor: pointer;
+}
+
+.kpi-lista tbody tr:hover, .resumo-loja tbody tr:hover {
+    background: var(--brand-soft);
+}
+
+.ano-sep {
+    border-bottom: 2px solid var(--brand);
+    color: var(--brand);
+    padding-bottom: 4px;
+}
+
+.seq-trilha {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px 2px 10px;
+    margin-top: 10px;
+}
+
+.seq-passo {
+    flex: 0 0 210px;
+    border: 2px solid var(--line);
+    border-top: 5px solid var(--brand);
+    border-radius: 12px;
+    padding: 12px;
+    background: #fff;
+    font-size: 13.5px;
+}
+
+.seq-passo.atual {
+    border-color: var(--brand);
+    box-shadow: var(--shadow-lg);
+    background: var(--brand-soft);
+}
+
+.seq-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.seq-etapa {
+    margin-bottom: 6px;
+}
+
+.seq-seta {
+    align-self: center;
+    color: var(--brand);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+#histRes tbody tr[data-act] {
+    cursor: pointer;
+}
+
+.destaque-venc {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    margin: 4px 0 14px;
+}
+
+.destaque-venc>div {
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dv-main {
+    background: linear-gradient(120deg,var(--brand),var(--brand-dark));
+    color: #fff;
+    box-shadow: var(--shadow-lg);
+}
+
+.dv-main span {
+    font-size: 14px;
+    opacity: .95;
+}
+
+.dv-main b {
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+.dv-sec {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+}
+
+.dv-sec span {
+    font-size: 13px;
+}
+
+.dv-sec b {
+    font-size: 26px;
+}
+
+.dv-sec.ok {
+    background: var(--ok-bg);
+    color: var(--ok);
+}
+
+@media(max-width:560px) {
+    .destaque-venc {
+        grid-template-columns: 1fr 1fr;
+    }
+    .dv-main {
+        grid-column: 1/-1;
+    }
+}
+
+.confirm-box {
+    max-width: 420px;
+    text-align: center;
+}
+
+.confirm-box .ic {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--brand-soft);
+    color: var(--brand);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    margin: 0 auto 10px;
+}
+
+.confirm-box p {
+    white-space: pre-line;
+    margin: 6px 0 16px;
+}
+
+.confirm-box .row {
+    justify-content: center;
+}
+
+.mini-kpis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.mini-kpis span {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.mini-kpis b {
+    font-size: 15px;
+}
+
+.escolha {
+    font-weight: 600;
+    margin: 0 0 12px;
+}
+
+.oc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 10px;
+}
+
+.oc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    background: #fff;
+    border: 2px solid var(--line);
+    border-left: 6px solid var(--brand);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color .2s,box-shadow .2s,background .2s;
+}
+
+.oc-card:hover {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+    box-shadow: var(--shadow-lg);
+}
+
+.oc-card.fechada {
+    border-left-color: #9a9a9a;
+}
+
+.oc-nome {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.oc-pills {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+.oc-seta {
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 13px;
+}

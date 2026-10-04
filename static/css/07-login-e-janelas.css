@@ -1,0 +1,241 @@
+/*
+ * 07-login-e-janelas.css
+ * Tela de login, janelas de cadastro e ajustes para celular.
+ * Os arquivos de CSS são carregados em ordem (01, 02, 03...): uma regra de um arquivo
+ * posterior pode completar ou substituir a de um arquivo anterior.
+ */
+
+/* ---- servidor / login ---- */
+body.sem-login header {
+    display: none;
+}
+
+body.sem-login main {
+    max-width: none;
+    padding: 0;
+}
+
+.login-wrap {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(160deg,rgba(200,16,46,.86) 0%,rgba(143,10,32,.80) 48%,rgba(20,20,20,.55) 100%),var(--foto) center 42%/cover no-repeat;
+}
+
+.login-wrap::after {
+    content: attr(data-empresa);
+    position: fixed;
+    left: 18px;
+    bottom: 14px;
+    color: rgba(255,255,255,.75);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.login-card {
+    backdrop-filter: blur(2px);
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 18px 40px rgba(20,20,20,.18);
+    padding: 30px 28px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card img {
+    width: 230px;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+
+.login-card h1 {
+    font-size: 22px;
+    margin: 6px 0 2px;
+}
+
+.login-card label {
+    text-align: left;
+}
+
+.login-erro {
+    background: var(--bad-bg);
+    color: var(--bad);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13.5px;
+    margin-top: 12px;
+}
+
+.user-box {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.hdr {
+    position: relative;
+}
+
+.user-box .ub {
+    background: rgba(255,255,255,.16);
+    color: #fff;
+    border: 0;
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.user-box .ub:hover {
+    background: rgba(255,255,255,.3);
+}
+
+.conexao {
+    background: #fff;
+    color: var(--bad);
+    border-radius: 7px;
+    padding: 4px 10px;
+    font-weight: 700;
+}
+
+@media(max-width:760px) {
+    .user-box {
+        position: static;
+        margin: 0 0 8px;
+        flex-wrap: wrap;
+    }
+}
+
+.maiusc {
+    text-transform: uppercase;
+}
+
+.aviso-info {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+    border-radius: 8px;
+    padding: 9px 11px;
+    font-size: 13.5px;
+    margin: 8px 0;
+}
+
+.manut-acoes {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn-grande {
+    padding: 14px 22px;
+    font-size: 15.5px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.busca-loja {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 4px 12px;
+    background: #fff;
+}
+
+.busca-loja:focus-within {
+    border-color: var(--brand);
+}
+
+.busca-loja input {
+    border: 0;
+    margin: 0;
+    font-size: 15.5px;
+    padding: 9px 4px;
+    outline: none;
+}
+
+.trilha-avisos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 6px 0 12px;
+}
+
+.trilha-avisos .det-seta {
+    font-size: 18px;
+}
+
+.notif.atual {
+    border: 2px solid var(--brand);
+}
+
+.kpis-10 {
+    grid-template-columns: repeat(6,1fr);
+}
+
+@media(max-width:1100px) {
+    .kpis-10 {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    .kpis-10 {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.kpi.warn b {
+    color: var(--warn);
+}
+
+.kpi.ok b {
+    color: var(--ok);
+}
+
+a.btn {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.linha-avulsa td {
+    background: #fffaf0;
+}
+
+.btn-voltar {
+    background: var(--brand);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 10px rgba(200,16,46,.25);
+}
+
+.btn-voltar:hover {
+    background: var(--brand-dark);
+}
+
+code {
+    background: var(--bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12.5px;
+}

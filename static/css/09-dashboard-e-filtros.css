@@ -1,0 +1,530 @@
+/*
+ * 09-dashboard-e-filtros.css
+ * Dashboard (cartões em blocos), seletor de período, "Ordenar por" e botão Reabrir.
+ * Os arquivos de CSS são carregados em ordem (01, 02, 03...): uma regra de um arquivo
+ * posterior pode completar ou substituir a de um arquivo anterior.
+ */
+
+/* Seletor de período, Dashboard compacto e barra das tabelas */
+
+/* seletor de período (anos em números + 12 meses), abre clicando em qualquer lugar do campo */
+.mp {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.mp-rot {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .6px;
+    color: var(--sub);
+    text-transform: uppercase;
+}
+
+.mp.a .mp-rot {
+    color: #c8102e;
+}
+
+.mp.b .mp-rot {
+    color: #2f6fb3;
+}
+
+.mp-campo {
+    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 150px;
+    padding: 8px 12px;
+    border: 2px solid var(--brand);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mp.b .mp-campo {
+    border-color: #2f6fb3;
+    color: #2f6fb3;
+}
+
+.mp.a .mp-campo {
+    color: #c8102e;
+}
+
+.mp-campo:hover {
+    box-shadow: 0 0 0 3px rgba(200,16,46,.12);
+}
+
+.mp-campo .ic {
+    font-size: 14px;
+    opacity: .7;
+}
+
+.mp-pop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    z-index: 60;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+    padding: 12px;
+    width: 268px;
+}
+
+.mp.dir .mp-pop {
+    left: auto;
+    right: 0;
+}
+
+.mp-sec {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    color: var(--sub);
+    margin: 2px 2px 6px;
+}
+
+.mp-grade {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.mp-grade button {
+    font: inherit;
+    font-size: 13px;
+    padding: 7px 0;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: #f6f6f6;
+    cursor: pointer;
+    color: var(--ink);
+}
+
+.mp-grade button:hover:not(:disabled) {
+    border-color: var(--brand);
+    color: var(--brand);
+    background: #fff;
+}
+
+.mp-grade button.sel {
+    background: var(--brand);
+    color: #fff;
+    font-weight: 800;
+}
+
+.mp-grade button.ano-at {
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+    background: #fff;
+    color: var(--brand);
+    font-weight: 800;
+}
+
+.mp-grade button:disabled {
+    opacity: .35;
+    cursor: default;
+}
+
+.mp-rod {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+}
+
+.mp-rod button {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    background: none;
+    border: 0;
+    color: var(--brand);
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+.per-linha {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.chip-todos {
+    font: inherit;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 2px solid var(--line);
+    background: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.chip-todos.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+
+.venc-periodo {
+    display: flex!important;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0!important;
+    border: 0!important;
+    background: none!important;
+    margin: 0 0 12px!important;
+}
+
+.venc-periodo .vp-atual {
+    margin-left: 8px;
+    font-size: 15px;
+}
+
+/* Dashboard compacto: 3 blocos lado a lado */
+.dk-grupos {
+    display: grid!important;
+    grid-template-columns: 3fr 4fr 2fr;
+    gap: 12px;
+    flex-direction: initial;
+}
+
+@media(max-width:1100px) {
+    .dk-grupos {
+        grid-template-columns: 1fr 1fr;
+    }
+    .dk-grupo:last-child {
+        grid-column: 1/-1;
+    }
+}
+
+@media(max-width:700px) {
+    .dk-grupos {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dk-grupo {
+    background: #fbf8f8;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 8px 10px 10px;
+}
+
+.dk-tit {
+    font-size: 11px!important;
+    margin: 0 0 6px 2px!important;
+}
+
+.dk-linha {
+    gap: 8px!important;
+}
+
+@media(max-width:700px) {
+    .dk-linha {
+        grid-template-columns: repeat(var(--n),1fr)!important;
+    }
+}
+
+.dk {
+    padding: 8px 10px!important;
+    border-top-width: 4px!important;
+    border-radius: 10px!important;
+    gap: 2px!important;
+    box-shadow: none!important;
+}
+
+.dk-nome {
+    font-size: 12.5px!important;
+    line-height: 1.2;
+}
+
+.dk-num {
+    font-size: 24px!important;
+}
+
+/* barra da tabela: pesquisa + ordem + exportar */
+.tab-barra {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.tab-barra .busca-loja {
+    flex: 1;
+    min-width: 240px;
+    margin: 0;
+}
+
+.gr-tab {
+    margin-top: 14px;
+}
+
+@media(max-width:800px) {
+    .gr-meses>* {
+        min-width: 0;
+    }
+    .gr-meses {
+        padding: 12px 10px;
+    }
+}
+
+@media(max-width:600px) {
+    .mp {
+        display: flex;
+        width: 100%;
+    }
+    .mp-campo {
+        min-width: 0;
+        width: 100%;
+    }
+    .mp-pop {
+        width: min(268px,calc(100vw - 40px));
+    }
+}
+
+/* Dashboard (cartões em blocos), Gráficos, ordem e reabrir */
+
+/* Dashboard: cartões em blocos, cor por situação */
+.dk-grupos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.dk-tit {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--brand);
+    text-transform: uppercase;
+    margin: 0 0 6px 2px;
+}
+
+.dk-tit small {
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--sub);
+    margin-left: 6px;
+    font-size: 12px;
+}
+
+.dk-linha {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(var(--n),1fr);
+}
+
+@media(max-width:700px) {
+    .dk-linha {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.dk {
+    --c: #141414;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 6px solid var(--c);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--shadow);
+    transition: transform .15s,box-shadow .15s;
+}
+
+.dk:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--c);
+}
+
+.dk-nome {
+    font-size: 15px;
+    font-weight: 800;
+    color: #141414;
+    letter-spacing: .2px;
+}
+
+.dk-num {
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--c);
+}
+
+.dk.ok {
+    --c: #1f8a4c;
+}
+
+.dk.bad {
+    --c: #c8102e;
+}
+
+.dk.av {
+    --c: #3d3d3d;
+}
+
+.dk.ent {
+    --c: #2f6fb3;
+}
+
+.dk.bx {
+    --c: #8a8a8a;
+}
+
+.dk.pend {
+    --c: #141414;
+}
+
+.dk.sel {
+    background: var(--c);
+    border-color: var(--c);
+}
+
+.dk.sel .dk-nome, .dk.sel .dk-num {
+    color: #fff;
+}
+
+.dk-bola {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: 1px;
+}
+
+.kver {
+    display: flex;
+    gap: 6px;
+    margin: 10px 0 0;
+}
+
+/* Gráficos: cartões clicáveis */
+.cmp.clic {
+    cursor: pointer;
+    transition: transform .15s,box-shadow .15s;
+}
+
+.cmp.clic:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cmp.clic.sel {
+    border: 2px solid #c8102e;
+    box-shadow: 0 0 0 3px rgba(200,16,46,.15);
+}
+
+.cmp.clic.sel .t {
+    color: #c8102e;
+    font-weight: 800;
+}
+
+.sel-per input[type=month] {
+    margin: 0;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: #fff;
+    font: inherit;
+    font-weight: 700;
+}
+
+.sel-per.a input[type=month] {
+    border: 2px solid #c8102e;
+    color: #c8102e;
+}
+
+.sel-per.b input[type=month] {
+    border: 2px solid #2f6fb3;
+    color: #2f6fb3;
+}
+
+.venc-periodo input[type=month] {
+    margin: 0;
+    border: 2px solid var(--brand);
+    border-radius: 10px;
+    padding: 8px 10px;
+    font: inherit;
+    font-weight: 700;
+    min-width: 220px;
+}
+
+/* Vencimentos: ordem em um botão só */
+.ord-sel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 13px;
+    color: var(--sub);
+    font-weight: 600;
+}
+
+.ord-sel select {
+    margin: 0;
+    width: auto;
+    min-width: 210px;
+    padding: 7px 10px;
+    border: 2px solid var(--brand);
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    color: var(--brand);
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Reabrir */
+.btn-reabrir {
+    background: #fff!important;
+    color: var(--brand)!important;
+    border: 2px solid var(--brand)!important;
+    font-weight: 800;
+}
+
+.btn-reabrir:hover {
+    background: var(--brand)!important;
+    color: #fff!important;
+}
+
+.mini-reabrir {
+    font: inherit;
+    font-size: 10.5px;
+    font-weight: 700;
+    margin-top: 4px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--brand);
+    background: #fff;
+    color: var(--brand);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.mini-reabrir:hover {
+    background: var(--brand);
+    color: #fff;
+}

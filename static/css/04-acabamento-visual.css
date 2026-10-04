@@ -1,0 +1,138 @@
+/*
+ * 04-acabamento-visual.css
+ * Sombras, cantos arredondados e efeitos ao passar o mouse.
+ * Os arquivos de CSS são carregados em ordem (01, 02, 03...): uma regra de um arquivo
+ * posterior pode completar ou substituir a de um arquivo anterior.
+ */
+
+/* Acabamento visual: sombras, cantos e efeitos de passar o mouse */
+.card {
+    box-shadow: var(--shadow);
+}
+
+.card>h2:first-child, .card .row>h2 {
+    border-left: 4px solid var(--brand);
+    padding-left: 8px;
+}
+
+.btn {
+    transition: transform .15s,box-shadow .2s,background .2s;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200,16,46,.25);
+}
+
+.btn:not(.secondary):not(.danger):hover {
+    background: var(--brand-dark);
+}
+
+.btn.danger {
+    background: var(--black);
+    color: #fff;
+    border: 1px solid var(--black);
+}
+
+.btn.danger:hover {
+    background: var(--brand)!important;
+    border-color: var(--brand);
+}
+
+th {
+    background: var(--black);
+    color: #fff;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+th:first-child {
+    border-top-left-radius: 6px;
+}
+
+th:last-child {
+    border-top-right-radius: 6px;
+}
+
+tr.grupo td {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+    font-weight: 700;
+    border-bottom: 2px solid var(--brand);
+}
+
+.kpi {
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--brand);
+    transition: transform .2s;
+}
+
+.kpi:hover {
+    transform: translateY(-3px);
+}
+
+.kpi.bad b {
+    color: var(--brand);
+}
+
+.loja-item {
+    transition: border-color .2s,transform .15s,background .2s;
+}
+
+.loja-item:hover {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+    transform: translateX(3px);
+}
+
+.lixo {
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 4px 7px;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--sub);
+    transition: all .2s;
+}
+
+.lixo:hover {
+    color: #fff;
+    background: var(--brand);
+}
+
+.resultados-loja {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.resumo-loja {
+    border: 2px solid var(--brand);
+    border-radius: 12px;
+}
+
+.lista-lojas-dash {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.bar.topo span {
+    font-weight: 600;
+}
+
+.bar[data-act]:hover {
+    background: var(--brand-soft);
+    border-radius: 6px;
+}
+
+#toast {
+    background: var(--black);
+}
+
+#confirmRoot .overlay {
+    z-index: 40;
+}

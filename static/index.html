@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Controle de Notificações — {{EMPRESA}}</title>
+<meta name="robots" content="noindex">
+<meta name="empresa" content="{{EMPRESA}}">
+<link rel="icon" href="/icone.ico">
+<link rel="stylesheet" href="css/01-base.css?v=23">
+<link rel="stylesheet" href="css/02-graficos.css?v=23">
+<link rel="stylesheet" href="css/03-componentes-gerais.css?v=23">
+<link rel="stylesheet" href="css/04-acabamento-visual.css?v=23">
+<link rel="stylesheet" href="css/05-janela-da-notificacao.css?v=23">
+<link rel="stylesheet" href="css/06-historico-manutencao-vencimentos.css?v=23">
+<link rel="stylesheet" href="css/07-login-e-janelas.css?v=23">
+<link rel="stylesheet" href="css/08-graficos-resumo-do-ano.css?v=23">
+<link rel="stylesheet" href="css/09-dashboard-e-filtros.css?v=23">
+</head>
+<body>
+<header id="hdr">
+  <div class="hdr">
+    <h1 data-home title="Ir para a tela inicial"><span class="hdr-logo"><img class="logo-img" alt=""></span> Controle de Notificações <span style="font-size:12px;opacity:.8;font-weight:400">— {{EMPRESA}}</span></h1>
+    <div id="userBox" class="user-box"><span class="conexao hide" id="conexao">⚠️ sem conexão com o servidor</span><span>👤 <b id="userNome"></b></span><button class="ub" data-act="sair">Sair</button></div>
+    <nav id="tabs"></nav>
+  </div>
+</header>
+<main id="app"></main>
+<div id="modalRoot"></div>
+<div id="confirmRoot"></div>
+<div id="toast" class="hide"></div>
+
+<script src="js/01-imagens.js?v=23"></script>
+<script src="js/02-constantes.js?v=23"></script>
+<script src="js/03-datas-e-servidor.js?v=23"></script>
+<script src="js/04-ocorrencias.js?v=23"></script>
+<script src="js/05-telas-inicio-manutencao-vencimentos.js?v=23"></script>
+<script src="js/06-dashboard.js?v=23"></script>
+<script src="js/07-filtros.js?v=23"></script>
+<script src="js/08-graficos.js?v=23"></script>
+<script src="js/09-excel-relatorios.js?v=23"></script>
+<script src="js/10-consulta-historico-e-dados.js?v=23"></script>
+<script src="js/11-excel-gerador.js?v=23"></script>
+<script src="js/12-formularios.js?v=23"></script>
+<script src="js/13-eventos.js?v=23"></script>
+<script src="js/14-inicio.js?v=23"></script>
+</body>
+</html>
